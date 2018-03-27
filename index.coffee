@@ -91,7 +91,8 @@ module.exports = (robot) ->
               instance_id: instance.InstanceId,
               launch_time: moment(instance.LaunchTime).format('YYYY-MM-DD HH:mm:ssZ'),
               public_ip: instance.PublicIpAddress,
-              instance_type: instance.InstanceType
+              instance_type: instance.InstanceType,
+              availability_zone: instance.AvailabilityZone
             }
 
         servers.sort (a,b) ->
@@ -104,7 +105,7 @@ module.exports = (robot) ->
         if servers.length == 0
           msg.send "No matching servers"
         else
-          text =   "#{padRight('Environment', 20)} #{padRight('Name', 32)} #{padRight('State', 16)} #{padRight('Instance Id', 20)} #{padRight('Instance Type', 16)} #{padRight('Public IP', 16)}\n"
-          text +=  "----------------------------------------------------------------------------------------------------------------------------------------\n"
-          text += ("#{padRight(s.environment, 20)} #{padRight(s.name, 32)} #{padRight(s.state, 16)} #{padRight(s.instance_id, 20)} #{padRight(s.instance_type, 16)} #{padRight(s.public_ip, 16)}" for s in servers).join("\n")
+          text =   "#{padRight('Environment', 20)} #{padRight('Name', 32)} #{padRight('State', 16)} #{padRight('Instance Id', 20)} #{padRight('Instance Type', 16)} #{padRight('Public IP', 16)} #{padRight('Availability Zone', 16)}\n"
+          text +=  "------------------------------------------------------------------------------------------------------------------------------------------------\n"
+          text += ("#{padRight(s.environment, 20)} #{padRight(s.name, 32)} #{padRight(s.state, 16)} #{padRight(s.instance_id, 20)} #{padRight(s.instance_type, 16)} #{padRight(s.public_ip, 16)} #{padRight(s.availability_zone, 16)}" for s in servers).join("\n")
           msg.send "```#{text}```"
