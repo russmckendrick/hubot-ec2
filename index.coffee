@@ -92,7 +92,7 @@ module.exports = (robot) ->
               launch_time: moment(instance.LaunchTime).format('YYYY-MM-DD HH:mm:ssZ'),
               public_ip: instance.PublicIpAddress,
               instance_type: instance.InstanceType,
-              availability_zone: instance.AvailabilityZone
+              availability_zone: instance.availabilityZone
             }
 
         servers.sort (a,b) ->
