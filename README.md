@@ -65,4 +65,4 @@ production-vpc       production-db-slave              running          i-abcd012
 
 ## Credits
 
-Based on https://github.com/yoheimuta/hubot-aws
+Based on https://github.com/johnnaegle/hubot-ec2 which is based on https://github.com/yoheimuta/hubot-aws
